@@ -5,9 +5,13 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const parser = new Parser();
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY) {
+  throw new Error('❌ Missing Supabase Environment Variables (SUPABASE_URL or SUPABASE_SERVICE_KEY). Check GitHub Secrets.');
+}
+
 const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_KEY!
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
 );
 
 const FEEDS = [
