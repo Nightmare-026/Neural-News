@@ -1,0 +1,25 @@
+{
+  "name": "neural-news",
+  "version": "1.0.0",
+  "description": "Autonomous news curation via Gemini AI & GitHub Actions",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "scrape": "ts-node src/scrape.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "@google/generative-ai": "^0.21.0",
+    "node-fetch": "^2.7.0",
+    "rss-parser": "^3.13.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.11.0",
+    "@types/node-fetch": "^2.6.9"
+  }
+}
