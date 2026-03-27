@@ -22,6 +22,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Debug Environment (Check if secrets exist)
+        run: |
+          if [ -z "$SUPABASE_URL" ]; then echo "❌ SUPABASE_URL is MISSING"; else echo "✅ SUPABASE_URL is present"; fi
+          if [ -z "$OPENROUTER_API_KEY" ]; then echo "❌ OPENROUTER_API_KEY is MISSING"; else echo "✅ OPENROUTER_API_KEY is present"; fi
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
       - name: Run Neural News Pipeline
         run: npm start
         env:
